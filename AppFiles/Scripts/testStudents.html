@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .test-cases {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #result {
+            width: 45%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verify Students</h1>
+    <div class="container">
+        <div>
+            <form id="validateForm">
+                <label for="students">Students (format: FirstName,LastName,Email (New line for every entry)):</label><br>
+                <textarea id="students" name="students" rows="4" cols="50"></textarea><br>
+                <button type="submit">Verify Students</button>
+            </form>
+            <div class="test-cases">
+                <button type="button" onclick="fillTestCase('valid')">Test Valid Students</button>
+                <button type="button" onclick="fillTestCase('invalid')">Test Invalid Students</button>
+                <button type="button" onclick="fillTestCase('duplicate')">Test Duplicate Students</button>
+                <button type="button" onclick="fillTestCase('mismatch')">Test Mismatched Names</button>
+            </div>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('validateForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let students = document.getElementById('students').value.split('\n').map(s => {
+                let parts = s.split(',');
+                return { firstName: parts[0], lastName: parts[1], email: parts[2] };
+            });
+
+            fetch('invite_validation.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    prefix: 'CS', 
+                    number: '101', 
+                    name: 'Introduction to Programming', 
+                    term: 'Fall 2024', 
+                    students: students 
+                }) // Sending course details with the students array
+            })
+            .then(response => response.text()) // Get the response as text
+            .then(text => {
+                console.log('Response:', text); // Log the response text
+                try {
+                    const data = JSON.parse(text); // Try to parse the response as JSON
+                    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        function fillTestCase(caseType) {
+            let studentsInput = '';
+            switch(caseType) {
+                case 'valid':
+                    studentsInput = 'John,Doe,john.doe@buffalo.edu\nJane,Smith,jane.smith@buffalo.edu';
+                    break;
+                case 'invalid':
+                    studentsInput = 'John,Does,johndoes\nJane,Smiths,janesmiths';
+                    break;
+                case 'duplicate':
+                    studentsInput = 'John,Doe,john.doe@buffalo.edu\nJohn,Doe,john.doe@buffalo.edu';
+                    break;
+                case 'mismatch':
+                    studentsInput = 'John,Doe,john.doe@buffalo.edu\nJane,Doe,jane.smith@buffalo.edu';
+                    break;
+            }
+            document.getElementById('students').value = studentsInput;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            
+        }
+
+        .column {
+            background-color: #4361EE;
+            color: white;
+            width:  20% ;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            justify-content: space-between;
+        }
+        .column img {
+            max-width: 100%;
+            height: 22%;
+          }
+        .column .Home-status{
+          
+           height: auto; 
+           width: auto;  
+        }
+        .column a {
+            color: white;
+            text-decoration: none;
+            margin: 50px 0;
+            font-size: 50px;
+        }
+        .column .Login_status {
+            font-size: 80px;
+            margin-bottom: 230px;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .row {
+            background-color: #4CC9F0;
+            width: 100%;
+            height:20.5%;
+            
+            text-align: left;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: left;
+            align-items: flex-end;
+            position: relative;
+        }
+        .row h1 {
+            margin: 0;
+            color: #000000;
+            font-size: 150px;
+            margin-left: 100px;
+           
+            justify-content: center;
+            margin-bottom: 20px;
+            
+            
+
+        }
+
+        .square {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: auto;
+            width: 540px;
+            margin-top: 100px;
+            margin-right: 100px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #008F0E;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 18px;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #007C0D;
+        }
+        .form-group a {
+            color: blue;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .message {
+            color: red;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .square {
+                width: 400px;
+                margin: 50px auto;
+            }
+            .row h1 {
+                font-size: 100px;
+                
+                
+            }
+        }
+
+        @media (max-width: 768px) {
+            .square {
+                width: 90%;
+                margin: 30px auto;
+            }
+            .row h1 {
+               font-size:70px;
+               margin-left:100
+               }
+            
+            .column a, .column .Login_status {
+                font-size: 30px;
+                margin: 20px 0;
+            }
+        }
+        @media (max-width: 480px) {
+            
+
+            .square {
+                width: 95%;
+                margin: 20px auto;
+            }
+            .row {
+                 height: auto;
+                justify-content: center;
+                align-items : center;
+               text-align: center; 
+              } 
+            .row h1 {
+                font-size: 8vw;
+                margin-left:0; 
+            }
+            .column {
+                width: 100%;
+                height: auto;
+                flex-direction :row;
+                justify-content: space-arround;
+               padding : 10px 0;
+            }
+            .column a, .column .Login_status {
+                font-size: 20px;
+                margin: 10px 0;
+            }
+        }
+       @media (max-width:375px){
+        .row h1{
+          font-size: 8vw;
+         }
+        
+       .column a, .column .Login_status{
+        font-size: 18px;
+     }
+}
+    </style>
+</head>
+<body>
+    <script type="module" src="../Scripts/post_login.js"></script>
+    <div class="column">
+        <img src="../Images/penguin-logo.png" alt="Penguin Logo">
+        <a href="#" class= "Home-status">Home</a>
+        <a class="Login_status">Login</a>
+        <img src="../Images/UB-logo.png" alt="UB Logo" class="UB-logo">
+    </div>
+    <div class="container">
+        <div class="row">
+            <h1>Account Login</h1>
+        </div>
+        <div class="square">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="@buffalo.edu" required pattern=".+@buffalo\.edu">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="8-18 characters" required>
+                </div>
+                <div class="form-group">
+                    
+                    <!-- <select id="options" name="options">
+                        <option value="student">Student</option>
+                        <option value="instructor">Instructor</option>
+                    </select> -->
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="button">Submit</button>
+                </div>
+                <div class="form-group">
+                    <a href="change_password.php">Forgot username or password</a>
+                </div>
+                <div class="form-group">
+                    <a href="AccountCreation.html">Create New Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

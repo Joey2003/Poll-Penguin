@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-3974203-1', 'auto'); ga('send', 'pageview');</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/instructor_feedback.css">
+    <title>Instructor Feedback Page</title>
+    <script src="https://kit.fontawesome.com/9e2d9a22b2.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/setCourseID.js" type="module"></script>
+    <script src="../Scripts/livefeedbackUpdate.js" type="module"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="profile-container">
+            <div class="profile">
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+        </div>
+        <div class="container">
+            <aside>
+                <div class="top">
+                    <div class="logo">
+                        <!-- Replace with app logo later -->
+                        <h2><span>App Name</span></h2>
+                    </div>
+                    <!-- <div class="close">
+                        <span><i class="fa-solid fa-xmark"></i></span>
+                    </div> -->
+                </div>
+
+                <div class="sidebar">
+                    <a href="../HTML/InstructorLanding.html" id="home-tab">
+                        <i class="fa-solid fa-house"></i>
+                        <h3>Home</h3>
+                    </a>
+                    <a href="../HTML/CourseCreation.html" id="courses-tab">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <h3>Course Creation</h3>
+                    </a>
+                    <a href="#" id="polls-tab" style="display:none">
+                        <i class="fa-solid fa-question"></i>
+                        <h3>Polls</h3>
+                    </a>
+                    <a href="#" id="feedback-tab" class="active">
+                        <i class="fa-solid fa-square-poll-vertical"></i>
+                        <h3>Feeback</h3>
+                    </a>
+
+                    <a href="../HTML/Login_Page.html" id="logout-tab">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+            <main>
+                <div class="dropdown">
+                    <!-- <button>Courses</button> -->
+                    <select id="Courses" class="dropbtn">
+
+                        <option selected="" disabled="">Select a course</option>
+                    </select>
+                    <!-- <div class="dropdown-content">
+                        <a href="#link1">Course 1</a>
+                        <a href="#link2">Course 2</a>
+                        <a href="#link3">Course 3</a>
+                    </div> -->
+                </div>
+                <div id="average-score-container">
+                    <h1>Class Mood(Average Score): </h1>
+                    <span id="average-score-display">Just Right</span>
+                </div>
+                <h1>Feedback Mode</h1>
+                <canvas id="feedbackChart"></canvas>
+                <div class="feedback-buttons">
+                    <button id="startFeedback">Start Feedback Mode</button>
+                    <button id="stopFeedback">Stop Feedback Mode</button>
+                </div>
+                
+
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

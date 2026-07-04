@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* column */
+        .column {
+            background-color: #4361EE;
+            color: white;
+            width: 23%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+           
+            padding-bottom: 30px; /* Added padding at the bottom */
+            justify-content: space-between; /* Space out items in the column */
+        }
+        .column img {
+            height:18%;
+            width:60%
+          
+        }
+   
+        .column a {
+            color: white;
+            text-decoration: none;
+            margin: 50px 0;
+            font-size: 50px;
+        }
+        .column .Login_status {
+            font-size: 80px;
+           margin-bottom: 230px; /* Increased margin-bottom for more space */
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        /* Row */
+        .row {
+            background-color: #4CC9F0;
+            width: 100%;
+            height:18%;  
+            text-align: left;
+            box-sizing: border-box; /* Ensure padding is included in element's total width */
+           
+            display: flex;
+            justify-content: left; /* Center horizontally */
+            align-items: flex-end; /* Align items to the bottom */
+            position: relative; /* Allow positioning of child elements */
+        }
+           
+            
+        
+        .row h1 {
+            margin: 0;
+            color: #000000;
+            font-size: 130px; /* Increase font size here */
+            position: absolute; /* Position absolutely within the .row */
+            bottom: 35px; /* Adjust this value to move it closer or further from the bottom */
+        }
+
+       
+
+
+
+        .square {
+            background-color: white;
+            padding: 30px;
+            
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            height: 400px;
+            width: 600px;
+            margin-top:  100px;
+            margin-right: 100px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #008F0E;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 18px;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #007C0D;
+        }
+        .form-group a {
+            color: blue;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="column">
+        <img src="../Images/penguin-logo.png" alt="Penguin Logo">
+        <a href="#">Home</a>
+        <a  class="Login_status">Login</a>
+        
+        <img src="../Images/UB-logo.png" alt="UB Logo" class="UB-logo">
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <h1>Account Login</h1>
+        </div>
+        <div class="square">
+            <form id="loginForm" method="POST" action="../PHP/CreatAccount.php">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required pattern=".+@buffalo\.edu">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="options">Options:</label>
+                    <select id="options" name="options">
+                        <option value="student">Student</option>
+                        <option value="instructor">Instructor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="form-group">
+                    <a href="change_password.php">Forgot username or password</a>
+                </div>
+                <div class="form-group">
+                    <a href="create_account.php">Create New Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Course Creation</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <!-- <script src="../Scripts/post_course.js"></script> -->
+  
+    <style>
+      .container {
+          width: 578px;
+          height: 432px;
+          overflow-y: auto;
+          border: 1px solid #ccc;
+          padding: 10px;
+          box-sizing: border-box;
+          left: 795px; top: 317px; position: absolute;
+      }
+      .student-entry {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px;
+          margin-bottom: 8px;
+          border-bottom: 1px solid #eee;
+      }
+      .student-info {
+          flex-grow: 1;
+      }
+      .remove-button {
+          background-color: #f44336;
+          color: white;
+          border: none;
+          padding: 5px 10px;
+          cursor: pointer;
+      }
+  </style>
+  
+  </head>
+<body>
+  <script type="module" src="../Scripts/post_course.js"></script>
+<div class="Desktop" style="width: 1440px; height: 1024px; position: absolute; background: white">
+    <a href="../HTML/InstructorLanding.html">
+      <button id="finish" style="width: 120px; height: 55px; background: #3DB860; border-radius: 11px; position: absolute; left: 1327px; top: 891px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <span style="color: white; font-size: 28px; font-family: Inter; font-weight: 600; line-height: 42px; text-align: center;">Finish</span>
+    </button>    
+    </a>
+    <div class="PleaseFillTheRequiredFields" style="width: 236px; height: 36px; left: 1211px; top: 946px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Noto Serif Thai; font-weight: 400; line-height: 30px; word-wrap: break-word">Please fill the required fields.</div>
+    <div class="Header" style="width: 1533px; height: 92px; left: -12.50px; top: 0px; position: absolute; background: #352F71"></div>
+    <a href="../HTML/InstructorLanding.html">
+    <button id="Back_button" style="width: 131px; height: 62px; background: #405B8F; box-shadow: -3px 4px 0.3px rgba(0, 0, 0, 0.25); border: 3px solid #343434; position: absolute; left: -0.5px; top: 15px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+      <span style="color: white; font-size: 28px; font-family: Inika; font-weight: 700; line-height: 42px; text-align: center;">Back</span>
+    </button>
+    </a>
+    <a href="../HTML/Login_Page.html">
+      <div id="log_out"  style="left: 1396.50px;  position: absolute; color: white; font-size: 20px; font-family: Inter; font-weight: 700; line-height: 30px; word-wrap: break-word">Log Out</div>
+    </a>
+    <div class="Ellipse1" style="width: 50px; height: 50px; left: 1333.50px; top: 19px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
+    <div class="U" style="left: 1346px; top: 19px; position: absolute; text-align: center; color: #352F71; font-size: 33px; font-family: Bree Serif; font-weight: 400; line-height: 49.50px; word-wrap: break-word">U</div>
+    <div class="CourseCreation" style="width: 515px; height: 50px; left: 496.50px; top: 32px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: Inter; font-weight: 700; line-height: 36px; word-wrap: break-word">Course Creation</div>
+    <select id="pre_fix" style="width: 274px; height: 46px; left: 165px; top: 195px; position: absolute; background: #FCFCFC; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 10px; border: 1px black solid">
+      <option>AAP</option><option>AAS</option><option>AED</option><option>AHI</option><option>AMS</option><option>APY</option><option>ARC</option><option>ARI</option><option>ART</option><option>AS</option>
+      <option>ASI</option><option>ASL</option><option>BCH</option><option>BE</option><option>BIO</option><option>BMI</option><option>BMS</option><option>CAS</option><option>CDA</option><option>CDN</option>
+      <option>CDS</option><option>CE</option><option>CEP</option><option>CHB</option><option>CHE</option><option>CHI</option><option>CIE</option><option>CL</option><option>COL</option><option>COM</option>
+      <option>CPM</option><option>CSE</option><option>DAC</option><option>DMS</option><option>EAS</option><option>ECO</option><option>EE</option><option>EEH</option><option>ELI</option><option>ELP</option>
+      <option>END</option><option>ENG</option><option>ENS</option><option>ES</option><option>EVS</option><option>FR</option><option>GEO</option><option>GER</option><option>GGS</option><option>GLY</option>
+      <option>GR</option><option>GRE</option><option>GSE</option><option>HEB</option><option>HIN</option><option>HIS</option><option>HMN</option><option>HON</option><option>IDS</option><option>IE</option>
+      <option>INF</option><option>ITA</option><option>JDS</option><option>JPN</option><option>KOR</option><option>LAI</option><option>LAT</option><option>LAW</option><option>LIN</option><option>LIS</option>
+      <option>LLS</option><option>MAE</option><option>MCH</option><option>MDI</option><option>MED</option><option>MFX</option><option>MGA</option><option>MGB</option><option>MGE</option><option>MGF</option>
+      <option>MGG</option><option>MGI</option><option>MGM</option><option>MGO</option><option>MGQ</option><option>MGS</option><option>MGT</option><option>MIC</option><option>MLS</option><option>MOH</option>
+      <option>MT</option><option>MTH</option><option>MTR</option><option>MUS</option><option>NBC</option><option>NBS</option><option>NEU</option><option>NMD</option><option>NRS</option><option>NSG</option>
+      <option>NTR</option><option>NUR</option><option>OPR</option><option>ORB</option><option>OT</option><option>PAS</option><option>PDO</option><option>PER</option><option>PGY</option><option>PHC</option>
+      <option>PHI</option><option>PHM</option><option>PHY</option><option>POL</option><option>POR</option><option>PSC</option><option>PSY</option><option>PT</option><option>PTH</option><option>PUB</option>
+      <option>RDN</option><option>REC</option><option>RLL</option><option>RSC</option><option>RSP</option><option>RUS</option><option>SCN</option><option>SOC</option><option>SPA</option><option>SSC</option>
+      <option>STA</option><option>STB</option><option>SW</option><option>TH</option><option>TNS</option><option>TUS</option><option>UBC</option><option>UBE</option><option>UE</option><option>UGC</option>
+      <option>ULC</option><option>VS</option><option></option>
+    </select>
+    <div class="CoursePrefix" style="width: 271px; height: 45px; left: 166px; top: 151px; position: absolute">
+      <span style="color: #BC0000; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">*</span>
+      <span style="color: black; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">Course Prefix</span>
+    </div>
+    <input id="c_num" style="width: 274px; height: 46px; left: 466px; top: 195px; position: absolute; background: #FCFCFC; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 10px; border: 1px black solid">
+    </input>
+    <div class="CourseNumber" style="width: 271px; height: 45px; left: 467px; top: 151px; position: absolute">
+      <span style="color: #BC0000; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">*</span>
+      <span style="color: black; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">Course Number</span>
+    </div>
+    <input id="c_name" style="width: 274px; height: 46px; left: 767px; top: 195px; position: absolute; background: #FCFCFC; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 10px; border: 1px black solid">
+    </input>
+    <div class="CourseName" style="width: 271px; height: 45px; left: 768px; top: 151px; position: absolute">
+      <span style="color: #BC0000; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">*</span><span style="color: black; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">Course Name</span></div>
+    <select id="Term" style="width: 274px; height: 46px; left: 1068px; top: 194px; position: absolute; background: #FCFCFC; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 10px; border: 1px black solid">
+      <option>SP24</option>
+      <option>SUM24</option>
+      <option>FA24</option>
+    </select>
+    <div class="CourseTerm" style="width: 271px; height: 45px; left: 1069px; top: 150px; position: absolute">
+      <span style="color: #BC0000; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">*</span><span style="color: black; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">Course Term</span></div>
+    <div class="IndicatesARequiredField" style="width: 286px; height: 35px; left: 165px; top: 106px; position: absolute">
+      <span style="color: black; font-size: 16px; font-family: Noto Serif Thai; font-weight: 400; line-height: 24px; word-wrap: break-word">(</span>
+      <span style="color: #BC0000; font-size: 16px; font-family: Noto Serif Thai; font-weight: 400; line-height: 24px; word-wrap: break-word">*</span>
+      <span style="color: black; font-size: 16px; font-family: Noto Serif Thai; font-weight: 400; line-height: 24px; word-wrap: break-word">) Indicates a required field.</span>
+    </div>
+    <input type="file" id="drop_box" accept=".csv" style="width: 548px; height: 116px; left: 165.50px; top: 320px; position: absolute; background: #F0F0F0; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 10px; border: 1px black solid"></input>
+    <button id="invite" style="width: 120px; height: 35px; background: #3DB860; border-radius: 11px; position: absolute; left: 600px; top: 460px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer;">
+      <span style="color: white; font-size: 28px; font-family: Inter; font-weight: 600; line-height: 42px; word-wrap: break-word;">Invite</span>
+  </button>
+    <div class="Y" style="width: 535px; height: 18px; left: 166.50px; top: 438px; position: absolute">
+      <span style="color: black; font-size: 12px; font-family: Noto Serif Thai; font-weight: 500; line-height: 18px; word-wrap: break-word">You have enrolled </span>
+      <span id= "newStudents" style="color: black; font-size: 14px; font-family: Noto Serif Thai; font-weight: 700; line-height: 21px; word-wrap: break-word">0</span>
+      <span style="color: black; font-size: 12px; font-family: Noto Serif Thai; font-weight: 500; line-height: 18px; word-wrap: break-word"> new students. Enrolled students can be modified after course creation.</span>
+    </div>
+    <div class="Th" style="width: 204px; height: 116px; left: 337.50px; top: 320px; position: absolute; color: black; font-size: 12px; font-family: Noto Serif Thai; font-weight: 500; line-height: 18px; word-wrap: break-word">
+      The file should be formatted as follows:
+      <br/>
+      <br/>Jane,Doe,JaneD@buffalo.edu
+      <br/>John,Doe,JohnD@buffalo.edu
+      <br/>Jean,Paul,JeanP@buffalo.edu
+    </div>
+    <div class="InviteStudentsTxt" style="width: 271px; height: 45px; left: 166.50px; top: 276px; position: absolute; color: black; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">Invite Students (.csv)</div>
+    <div id="studentList" class="container">
+      <!-- Add more student entries as needed -->
+    </div>
+    <div class="EnrolledStudents" style="width: 271px; height: 45px; left: 802px; top: 272px; position: absolute; color: black; font-size: 24px; font-family: Noto Serif Thai; font-weight: 400; line-height: 36px; word-wrap: break-word">Enrolled Students</div>
+  </div>
+</body>
+</html>

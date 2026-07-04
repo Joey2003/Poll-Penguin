@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #result, #entry {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Submit Feedback</h1>
+    <form id="feedbackForm">
+        <div>
+            <label for="course">Course:</label>
+            <select id="course" name="course">
+                <option value="CS101">CS101</option>
+                <option value="BS420">Course not in DB</option>
+                <option value="">Empty string</option>
+            </select>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <select id="email" name="email">
+                <option value="john.doe@buffalo.edu">john.doe@buffalo.edu</option>
+                <option value="">Empty email</option>
+                <option value="johnD@buffalo.edu">Wrong email</option>
+            </select>
+        </div>
+        <div>
+            <label for="feedback">Feedback:</label>
+            <select id="feedback" name="feedback">
+                <option value="Lost">Lost</option>
+                <option value="Just Right">Just Right</option>
+                <option value="Easy">Easy</option>
+                <option value="b.s">Invalid Feedback</option>
+                <option value="">Empty string</option>
+            </select>
+        </div>
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <div id="result">
+        <h2>PHP Return Value:</h2>
+        <pre id="phpResult"></pre>
+    </div>
+    <div id="entry">
+        <h2>Database Entry:</h2>
+        <pre id="dbEntry"></pre>
+    </div>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let course = document.getElementById('course').value;
+            let email = document.getElementById('email').value;
+            let feedback = document.getElementById('feedback').value;
+
+            fetch('studentFeedbackSubmission.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    course_id: course, 
+                    email: email, 
+                    feedback: feedback 
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('phpResult').innerText = JSON.stringify(data, null, 2);
+
+                // Clear the database entry section if feedback submission failed
+                if (!data.ok) {
+                    document.getElementById('dbEntry').innerText = '';
+                    return;
+                }
+
+                // If feedback submission was successful, fetch the updated entry
+                fetch('loadFeedbackEntries.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        course_id: course, 
+                        email: email 
+                    })
+                })
+                .then(response => response.json())
+                .then(entryData => {
+                    document.getElementById('dbEntry').innerText = JSON.stringify(entryData, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error fetching entry:', error);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
